@@ -1,0 +1,96 @@
+<div class="page model">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div *ngIf="carSuccess" class="alert alert-success alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <strong>Success!</strong> Car Model Added!
+                </div>
+                <div *ngIf="carError" class="alert alert-danger alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <strong>Error!</strong> {{carErrorMsg}}
+                </div>
+
+                <h2 class="page-title">Add Car Model</h2>
+            </div>
+        </div>
+        <div class="spacer"></div>
+        <div class="card">
+            <form #carForm="ngForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="name">Name <i class="required"></i></label>
+                            <input id="name" name="name" [(ngModel)]="car.name" type="text" class="form-control input-lg"
+                                placeholder="John Doe" required [ngClass]="{'error': car.name && car.name.invalid}">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="manufacturer_id">Manufacturer <i class="required"></i></label>
+                            <select id="manufacturer_id" name="manufacturer_id" [(ngModel)]="car.manufacturer_id" type="text"
+                                class="form-control input-lg" required>
+                                <option *ngFor="let manufacture of manufacturerList" value="{{manufacture.id}}">
+                                    {{manufacture.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="color">Color <i class="required"></i></label>
+                            <input id="color" name="color" [(ngModel)]="car.color" type="text" class="form-control input-lg"
+                                placeholder="Black" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="year">Manufacturing Year <i class="required"></i></label>
+                            <input id=year name="year" [(ngModel)]="car.year" type="text" class="form-control input-lg"
+                                placeholder="YYYY" required pattern="^[1-9]{1}\d{3}$">
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="regno">Registration No. <i class="required"></i></label>
+                            <input id=regno name="regno" [(ngModel)]="car.regno" type="text" class="form-control input-lg"
+                                placeholder="XX 00 XXXX" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="">Note</label>
+                            <textarea name="note" [(ngModel)]="car.note" class="form-control input-lg"
+                                placeholder="Type here..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="image1">Car Image 1 ( jpg only)<i class="required"></i></label>
+                            <input id="image1" name="image1" [(ngModel)]="car.image1" type="file" accept="image/jpg" class="form-control input-lg"
+                                required (change)="handleFileInput1($event.target.files)">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="image2">Car Image 2 ( jpg only)<i class="required"></i></label>
+                            <input id="image2" name="image2" [(ngModel)]="car.image2" type="file" accept="image/jpg" class="form-control input-lg"
+                                required (change)="handleFileInput2($event.target.files)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12" style="text-align: right">
+                        <button class="btn btn-lg btn-primary" type="submit"
+                            [disabled]="!carForm.form.valid">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

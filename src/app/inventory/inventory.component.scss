@@ -1,0 +1,38 @@
+.inventory {
+  &-list {
+    padding: 0;
+  }
+
+  table {
+    tr {
+      cursor: pointer;
+    }
+  }
+}
+
+.info {
+  margin-bottom: 12px;
+  &-label {
+    color: rgba(#000, 0.6);
+    font-weight: 500;
+    font-size: 16px;
+    display: inline-block;
+    padding-right: 8px;
+  }
+  &-value {
+    color: #000;
+    font-weight: 500;
+    font-size: 16px;
+    display: inline-block;
+  }
+}
+
+.carousel#car-images {
+  .item {
+    width: 100%;
+    height: 320px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+}

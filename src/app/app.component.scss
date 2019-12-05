@@ -1,0 +1,5 @@
+@import '../assets//scss/variables';
+
+main{
+    min-height: calc(100% - #{$header-height} - #{$footer-height})
+}

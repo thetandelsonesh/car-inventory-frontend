@@ -1,0 +1,23 @@
+.model {
+  .card {
+    box-shadow: 0 0 42px rgba(#000, 0.1);
+    padding: 42px;
+  }
+
+  .required {
+    &::before {
+      content: "*";
+      font-style: normal;
+      color: #f44336;
+    }
+  }
+
+  .ng-valid[required],
+  .ng-valid.required {
+    border: 1px solid #00c853; /* green */
+  }
+
+  .ng-touched.ng-invalid:not(form) {
+    border: 1px solid #f44336; /* red */
+  }
+}

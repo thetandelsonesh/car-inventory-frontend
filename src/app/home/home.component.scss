@@ -1,0 +1,33 @@
+@import '../../assets/scss/mixins';
+
+.home{
+    padding: 42px;
+    padding-top: 120px;
+    .cell{
+        border-radius: 7px;
+        background-color: #fff;
+        box-shadow: 0 0 42px rgba(#000,0.15);
+        padding: 24px;
+        max-width: 320px;
+        width: 100%;
+        text-align: center;
+        margin: auto;
+        cursor: pointer;
+        margin-bottom: 24px;
+        img{
+            max-width: 200px;
+            width: 100%;
+            padding: 42px;
+            @include transition(transform 300ms ease);
+        }
+        h3{
+            margin: 0;
+        }
+
+        &:hover{
+            img{
+                @include transform(scale(1.05));
+            }
+        }
+    }
+}
